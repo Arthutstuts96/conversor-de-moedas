@@ -1,7 +1,8 @@
 .App {
+  background-image: url("/public/imagens/moedas-background.jpg");
   text-align: center;
+  height: 100%;
 }
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;
