@@ -9,14 +9,14 @@ export const CaixasInput = ({nomeLabel, pegarValor}) => {
         if(valorAtual >= 0 ){
             setNumero(valorAtual);
         }
+        pegarValor(valorAtual)
     }
     return(
         <div className="container-input">
             <label htmlFor={nomeLabel}>{nomeLabel}</label>
             <input 
                 value={numero} 
-                onChange={atualizarValor} 
-                onClick={() => pegarValor(numero)}
+                onChange={(e) => atualizarValor(e)}
                 type="number"
                 className="caixa-input"
                 id={nomeLabel}

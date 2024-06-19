@@ -1,45 +1,32 @@
-import { useState } from 'react';
 import './App.css';
-import CaixasInput from './Componentes/CaixasInputs';
-import ListaOpcoes from './Componentes/ListaOpcoes';
 import { FaCoins } from "react-icons/fa";
+import Formulario from './Componentes/Formulario';
+import Resultado from './Componentes/Resultado';
+import { useState } from 'react';
 
 function App() {
-  const listaMoedas = [
-    "",
-    "Real",
-    "Dollar",
-    "Euro"
-  ]
-  //Pegando os dados
-  const [valor, setValor] = useState(0);
-  const [primeiraColuna, setPrimeiraColuna] = useState('nada');
-  const [segundaColuna, setSegundaColuna] = useState('nada');
-
-  const pegarValor = (dados) => {
-    setValor(dados);
+  const [valorResultado, setValorResultado] = useState(null);
+  //funções
+  function aoSubmeter(valor, selecaoUm, selecaoDois, event){
+    event.preventDefault();
+    enviarValoresParaResultado(valor, selecaoUm, selecaoDois);
   }
-  function pegarColuna(selecao, tipo){
-    console.log(selecao)
-    if(tipo === 'primeira'){
-      setPrimeiraColuna(selecao);
+  function enviarValoresParaResultado(valor, colunaUm, colunaDois){
+    const valores = {
+      valor: valor,
+      colunaUm: colunaUm,
+      colunaDois: colunaDois
     }
-    if(tipo === 'segunda'){
-      setSegundaColuna(selecao);
-    }
+    setValorResultado(valores);
   }
   //Função principal app
   return (
     <div className="App">
-        <p style={{fontSize: 50, fontFamily: "Arial, sans-serif"}}>
+        <p style={{fontSize: 50, fontFamily: "Arial, sans-serif", padding: 12}}>
           Conversor de moedas <FaCoins />
         </p>
-        <CaixasInput nomeLabel="Valor" pegarValor={pegarValor}/>
-        <ListaOpcoes opcoes={listaMoedas} pegarColuna={pegarColuna} coluna='primeira'/>
-        <ListaOpcoes opcoes={listaMoedas} pegarColuna={pegarColuna} coluna='segunda'/>
-        <p style={{fontSize: 25}}>O valor é {valor}</p>
-        <p style={{fontSize: 35}}>O valor da primeira seleção é {primeiraColuna}</p>
-        <p style={{fontSize: 35}}>O valor da segunda seleção é {segundaColuna}</p>
+        <Formulario aoSubmeter={aoSubmeter} />
+        <Resultado resultado={valorResultado}/>
     </div>
   );
 }

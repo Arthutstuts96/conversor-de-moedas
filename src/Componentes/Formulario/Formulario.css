@@ -1,0 +1,14 @@
+.formulario{
+    background-color: rgba(54, 54, 54, 0.3);
+    padding: 24px;
+}
+.formulario .botao-submit{
+    cursor: pointer;
+    background-color: rgb(138, 255, 255);
+    padding: 8px;
+    border: none;
+    border-radius: 8px;
+}
+.formulario .botao-submit:hover{
+    background-color: rgb(96, 190, 190);
+}

@@ -1,0 +1,20 @@
+.container-resultado{
+    border: 2px solid #000;
+    margin: 0 20px;
+}
+.container-resultado strong{
+    color: #6e0909;
+}
+.container-resultado .texto-resultado{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.container-resultado .valor-convertido{
+    cursor: cell;
+    background-color: #858585;
+    text-decoration: underline;
+    font-family: monospace;
+    font-size: 75px;
+    color: #000;
+    border-radius: 4px;
+    padding: 0 12px;
+}

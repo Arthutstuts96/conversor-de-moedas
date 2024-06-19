@@ -1,7 +1,10 @@
 .lista-opcoes{
+    cursor: pointer;
     padding: 4px 16px 4px 4px;
     margin: 12px;
+    border-radius: 8px;
 }
 .lista-opcoes option{
+    cursor: inherit;
     font-family: Arial, Helvetica, sans-serif;
 }
